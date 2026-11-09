@@ -1,0 +1,118 @@
+﻿	<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TecnoBrasil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+    <img src="Ingoude.jpg" alt="Banner da Loja" class="banner">
+    <h1>TecnoBrasil</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="produtos.html">Produtos</a></li>
+            <li><a href="cadastro.html">Cadastro</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+    
+    <main>
+        <h2>Bem-vindo à TecnoBrasil!</h2>
+        
+
+        <section id="produtos">
+    <h2>Produtos Em Promoções</h2>
+    <div class="produto">
+        <img src="https://resource.logitech.com/content/dam/gaming/en/products/pro-keyboard/pro-clicky-gallery-1.png" alt="Teclado Logitech" />
+        <h3>Teclado Gamer Logitech G</h3>
+        <p>R$ 749,00</p>
+        <p>O melhor teclado do mercado.</p>
+        <button>Comprar</button>
+    </div>
+    <div class="produto">
+        <img src="https://images.kabum.com.br/produtos/fotos/564916/notebook-gamer-acer-nitro-v15-intel-core-i5-13420h-8gb-ram-geforce-rtx-3050-ssd-512gb-15-6-fhd-ips-144hz-windows-11-preto-anv15-51-58az_1715197002_gg.jpg" alt="Notebook Gamer Acer Nitro " />
+        <h3>Notebook</h3>
+        <p>R$ 4.999,00</p>
+        <p>O melhor notebook do mercado..</p>
+        <button>Comprar</button>
+    </div>
+    <div class="produto">
+        <img src="https://images.kabum.com.br/produtos/fotos/115753/placa-de-video-galax-nvidia-geforce-gtx-1650-ex-plus-1-click-oc-4gb-gddr6-65sql8ds93e1_1596552493_g.jpg" alt="Placa de video Geforce Gtx1650 4GB''" />
+        <h3>Placa de video 1650 4GB</h3>
+        <p>R$ 849,00</p>
+        <p>Placa de Vídeo Galax NVIDIA GeForce GTX 1650 EX Plus</p>
+        <button>Comprar</button>
+    </div>
+    <div class="produto">
+        <img src="https://images.kabum.com.br/produtos/fotos/92357/92357_index_g.jpg" alt="Headset Gamer HyperX Cloud Alpha" />
+        <h3>Headset Gamer HyperX Cloud Alpha</h3>
+        <p>R$ 449,00</p>
+        <p>Headset Gamer HyperX Cloud Alpha, Drivers 50mm, Múltiplas Plataformas, P2 e P3, Preto e Vermelho .</p>
+        <button>Comprar</button>
+    </div>
+</section>
+<section id="carrinho">
+    <h3>Carrinho de Compras</h3>
+    <ul id="itens-carrinho"></ul>
+    <p id="total">Total: R$ 0,00</p>
+    <button id="pagar">Pagar com PIX</button>
+</section>
+
+<script>
+    const produtos = [
+        { nome: 'Teclado Logitech G', preco: 749, img: 'https://resource.logitech.com/content/dam/gaming/en/products/pro-keyboard/pro-clicky-gallery-1.png' },
+        { nome: 'Notebook Gamer Acer', preco: 4999, img: 'https://example.com/notebook.jpg' },
+        { nome: 'Placa de video 1650"', preco: 849, img: 'https://example.com/tv.jpg' },
+        { nome: 'Fone de Ouvido Hyperx', preco: 449, img: 'https://example.com/fone.jpg' }
+    ];
+
+    let total = 0;
+
+    function adicionarAoCarrinho(produto) {
+        const itensCarrinho = document.getElementById('itens-carrinho');
+        const totalElement = document.getElementById('total');
+
+        // Adiciona o produto ao carrinho
+        const li = document.createElement('li');
+        li.textContent = `${produto.nome} - R$ ${produto.preco.toFixed(2)}`;
+        itensCarrinho.appendChild(li);
+
+        // Atualiza o total
+        total += produto.preco;
+        totalElement.textContent = `Total: R$ ${total.toFixed(2)}`;
+    }
+
+    const buttons = document.querySelectorAll('button:not(#pagar)');
+    buttons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            adicionarAoCarrinho(produtos[index]);
+        });
+    });
+
+    document.getElementById('pagar').addEventListener('click', () => {
+        if (total > 0) {
+            alert(`Pagamento realizado com sucesso! Total: R$ ${total.toFixed(2)} via PIX.`);
+            // Limpar o carrinho
+            document.getElementById('itens-carrinho').innerHTML = '';
+            total = 0;
+            document.getElementById('total').textContent = 'Total: R$ 0,00';
+        } else {
+            alert('Seu carrinho está vazio!');
+            }
+		});
+</script>
+
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 TecnoBrasil</p>
+    </footer>
+</body>
+</html>
