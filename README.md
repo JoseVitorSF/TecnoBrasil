@@ -118,9 +118,9 @@ Itens identificados na revisão do código para as próximas versões:
 
 ## 👤 Autor
 
-Desenvolvido por **[Seu Nome]**.
+Desenvolvido por **José Freitas**.
 
-📧 contato: seu-email@exemplo.com
+📧 contato: jose.vitorsf1@gmail.com
 
 ---
 
